@@ -10,7 +10,6 @@ import org.sopt.cloneCoding.domain.Member;
 public class ProductCreateDto {
     private String title;
     private Long sellerId;
-    private Double price;
     private String description;
     private String transactionPlace;
 }

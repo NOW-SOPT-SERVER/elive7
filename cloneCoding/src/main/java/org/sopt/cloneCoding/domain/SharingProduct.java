@@ -12,9 +12,9 @@ import lombok.experimental.SuperBuilder;
 public class SharingProduct extends Product {
     private Boolean sharingEvent;
 
-    public SharingProduct(String title, Member seller, Double price, String description, String transactionPlace,
+    public SharingProduct(String title, Member seller, String description, String transactionPlace,
                           Boolean sharingEvent) {
-        super(title, seller, price, description, transactionPlace);
+        super(title, seller, description, transactionPlace);
         this.sharingEvent = sharingEvent;
     }
 }

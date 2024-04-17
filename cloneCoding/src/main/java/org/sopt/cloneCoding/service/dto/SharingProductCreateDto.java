@@ -6,10 +6,10 @@ import lombok.Getter;
 public class SharingProductCreateDto extends ProductCreateDto {
     private Boolean sharingEvent;
 
-    public SharingProductCreateDto(String title, Long sellerId, Double price, String description,
+    public SharingProductCreateDto(String title, Long sellerId, String description,
                                    String transactionPlace,
                                    Boolean sharingEvent) {
-        super(title, sellerId, price, description, transactionPlace);
+        super(title, sellerId, description, transactionPlace);
         this.sharingEvent = sharingEvent;
     }
 }

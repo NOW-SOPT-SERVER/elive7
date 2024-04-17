@@ -11,11 +11,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 public class SellingProduct extends Product {
+    private double price;
     private boolean negotiable;
 
     public SellingProduct(String title, Member seller, Double price, String description, String transactionPlace,
                           boolean negotiable) {
-        super(title, seller, price, description, transactionPlace);
+        super(title, seller, description, transactionPlace);
+        this.price = price;
         this.negotiable = negotiable;
     }
 }

@@ -39,7 +39,6 @@ public class ProductService {
         SharingProduct sharingProduct = SharingProduct.builder()
                 .title(sharingProductCreateDto.getTitle())
                 .seller(member)
-                .price(sharingProductCreateDto.getPrice())
                 .description(sharingProductCreateDto.getDescription())
                 .transactionPlace(sharingProductCreateDto.getTransactionPlace())
                 .sharingEvent(sharingProductCreateDto.getSharingEvent())

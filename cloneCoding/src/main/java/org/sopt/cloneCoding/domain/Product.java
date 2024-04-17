@@ -29,14 +29,12 @@ public class Product {
 
     @ManyToOne
     private Member seller;
-    private Double price;
     private String description;
     private String transactionPlace;
 
-    public Product(String title, Member seller, Double price, String description, String transactionPlace) {
+    public Product(String title, Member seller, String description, String transactionPlace) {
         this.title = title;
         this.seller = seller;
-        this.price = price;
         this.description = description;
         this.transactionPlace = transactionPlace;
     }
