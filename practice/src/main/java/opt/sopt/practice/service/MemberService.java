@@ -3,7 +3,9 @@ package opt.sopt.practice.service;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import opt.sopt.practice.common.dto.ErrorMessage;
 import opt.sopt.practice.domain.Member;
+import opt.sopt.practice.exception.NotFoundException;
 import opt.sopt.practice.repository.MemberRepository;
 import opt.sopt.practice.service.dto.MemberCreateDto;
 import opt.sopt.practice.service.dto.MemberFindAllDto;
@@ -25,6 +27,11 @@ public class MemberService {
 
     public List<MemberFindAllDto> findMemberAll() {
         return MemberFindAllDto.findAll(memberRepository.findAll());
+
+    public Member findById(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND)
+        );
     }
 
     public MemberFindDto findMemberById(
