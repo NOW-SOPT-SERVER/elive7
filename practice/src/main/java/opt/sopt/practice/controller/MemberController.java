@@ -1,8 +1,10 @@
 package opt.sopt.practice.controller;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import opt.sopt.practice.service.MemberService;
 import opt.sopt.practice.service.dto.MemberCreateDto;
+import opt.sopt.practice.service.dto.MemberFindAllDto;
 import opt.sopt.practice.service.dto.MemberFindDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,17 @@ public class MemberController {
     @PostMapping
     public ResponseEntity createMember(
             @RequestBody MemberCreateDto memberCreateDto
-            ){
+    ) {
         return ResponseEntity.created(URI.create(memberService.createMember(memberCreateDto))).build();
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<MemberFindAllDto>> getMemberAll(
+
+    ) {
+        return ResponseEntity.ok(memberService.findMemberAll());
+    }
+
     @GetMapping("/{memberId}")
     public ResponseEntity<MemberFindDto> getMemberById(
             @PathVariable Long memberId
@@ -30,9 +40,10 @@ public class MemberController {
     }
 
     @DeleteMapping("/{memberId}")
-    public void deleteMember(
+    public ResponseEntity deleteMember(
             @PathVariable Long memberId
     ) {
         memberService.deleteMemberById(memberId);
+        return ResponseEntity.noContent().build();
     }
 }
