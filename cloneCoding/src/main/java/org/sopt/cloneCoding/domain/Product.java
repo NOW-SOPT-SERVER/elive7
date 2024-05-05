@@ -2,6 +2,8 @@ package org.sopt.cloneCoding.domain;
 
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,7 +22,7 @@ import org.sopt.cloneCoding.domain.Member;
 @NoArgsConstructor
 @SuperBuilder
 @DiscriminatorColumn(name = "type")
-public class Product {
+public class Product extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,9 +32,11 @@ public class Product {
     @ManyToOne
     private Member seller;
     private String description;
-    private String transactionPlace;
 
-    public Product(String title, Member seller, String description, String transactionPlace) {
+    @Enumerated(EnumType.STRING)
+    private TransactionPlace transactionPlace;
+
+    public Product(String title, Member seller, String description, TransactionPlace transactionPlace) {
         this.title = title;
         this.seller = seller;
         this.description = description;
