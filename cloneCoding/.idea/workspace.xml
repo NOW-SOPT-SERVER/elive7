@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3da53616-7c84-45f6-8898-681b4f368249" name="Changes" comment="" />
+    <list default="true" id="3da53616-7c84-45f6-8898-681b4f368249" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessStatusResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/config/JpaAuditingConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/HeartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/BaseTimeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Heart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/TransactionPlace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/DuplicateLikeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/HeartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/HeartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductFindAllDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SellingProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SellingProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SharingProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SharingProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SellingProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SellingProductCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SharingProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SharingProductCreateDto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,14 +50,46 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cloneCoding" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="cloneCoding#2" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="hw/#3" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -52,7 +114,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CloneCodingApplication.executor": "Run",
-    "git-widget-placeholder": "cloneCoding#1",
+    "git-widget-placeholder": "cloneCoding#2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/parks/Documents/GitHub/elive7/cloneCoding",
     "node.js.detected.package.eslint": "true",
@@ -64,6 +126,17 @@
   }
 }]]></component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CloneCodingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="cloneCoding.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.sopt.cloneCoding.CloneCodingApplication" />
@@ -89,6 +162,11 @@
       <updated>1713339126864</updated>
       <workItem from="1713339127970" duration="34000" />
       <workItem from="1713339172784" duration="3687000" />
+      <workItem from="1714850121414" duration="56000" />
+      <workItem from="1714850198111" duration="1542000" />
+      <workItem from="1714852106945" duration="1148000" />
+      <workItem from="1714853451961" duration="3463000" />
+      <workItem from="1714879009754" duration="15994000" />
     </task>
     <servers />
   </component>
