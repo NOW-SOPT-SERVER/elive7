@@ -6,6 +6,7 @@ import opt.sopt.practice.common.dto.ErrorMessage;
 import opt.sopt.practice.common.dto.ErrorResponse;
 import opt.sopt.practice.exception.NotFoundException;
 import opt.sopt.practice.exception.UnauthorizedActionException;
+import opt.sopt.practice.exception.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -30,6 +31,12 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ErrorResponse> handleUnauthorizedActionException(UnauthorizedActionException e) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
                 .body(ErrorResponse.of(e.getErrorMessage()));
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    protected ResponseEntity<ErrorResponse> handlerUnauthorizedException(UnauthorizedException e) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ErrorResponse.of(e.getErrorMessage().getStatus(), e.getErrorMessage().getMessage()));
     }
 
 }

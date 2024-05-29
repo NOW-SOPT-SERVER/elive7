@@ -1,6 +1,8 @@
 package opt.sopt.practice.controller;
 
 import jakarta.validation.Valid;
+import java.net.URI;
+import opt.sopt.practice.auth.PrincipalHandler;
 import opt.sopt.practice.common.dto.SuccessMessage;
 import opt.sopt.practice.common.dto.SuccessStatusResponse;
 import lombok.RequiredArgsConstructor;
@@ -23,13 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class BlogController {
     private final BlogService blogService;
 
+    private final PrincipalHandler principalHandler;
+
     @PostMapping("/blog")
-    public ResponseEntity<SuccessStatusResponse> createBlog(
-            @RequestHeader Long memberId,
-            @RequestBody BlogCreateRequest blogCreateRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .header("Location", blogService.create(memberId, blogCreateRequest))
-                .body(SuccessStatusResponse.of(SuccessMessage.BLOG_CREATE_SUCCESS));
+    public ResponseEntity createBlog(
+            BlogCreateRequest blogCreateRequest
+    ) {
+        return ResponseEntity.created(URI.create(blogService.create(
+                principalHandler.getUserIdFromPrincipal(), blogCreateRequest))).build();
     }
 
     @PatchMapping("/blog/{blogId}/title")

@@ -3,13 +3,16 @@ package opt.sopt.practice.service;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import opt.sopt.practice.auth.UserAuthentication;
 import opt.sopt.practice.common.dto.ErrorMessage;
+import opt.sopt.practice.common.jwt.JwtTokenProvider;
 import opt.sopt.practice.domain.Member;
 import opt.sopt.practice.exception.NotFoundException;
 import opt.sopt.practice.repository.MemberRepository;
 import opt.sopt.practice.service.dto.MemberCreateDto;
 import opt.sopt.practice.service.dto.MemberFindAllDto;
 import opt.sopt.practice.service.dto.MemberFindDto;
+import opt.sopt.practice.service.dto.UserJoinResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,12 +20,20 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
-    public String createMember(MemberCreateDto memberCreateDto) {
-        Member member = Member.create(memberCreateDto.name(), memberCreateDto.part(), memberCreateDto.age());
-        memberRepository.save(member);
-        return member.getId().toString();
+    public UserJoinResponse createMember(
+            MemberCreateDto memberCreate
+    ) {
+        Member member = memberRepository.save(
+                Member.create(memberCreate.name(), memberCreate.part(), memberCreate.age())
+        );
+        Long memberId = member.getId();
+        String accessToken = jwtTokenProvider.issueAccessToken(
+                UserAuthentication.createUserAuthentication(memberId)
+        );
+        return UserJoinResponse.of(accessToken, memberId.toString());
     }
 
     public List<MemberFindAllDto> findMemberAll() {

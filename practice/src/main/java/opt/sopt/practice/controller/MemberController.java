@@ -6,6 +6,8 @@ import opt.sopt.practice.service.MemberService;
 import opt.sopt.practice.service.dto.MemberCreateDto;
 import opt.sopt.practice.service.dto.MemberFindAllDto;
 import opt.sopt.practice.service.dto.MemberFindDto;
+import opt.sopt.practice.service.dto.UserJoinResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,10 +21,15 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public ResponseEntity createMember(
-            @RequestBody MemberCreateDto memberCreateDto
+    public ResponseEntity<UserJoinResponse> postMember(
+            @RequestBody MemberCreateDto memberCreate
     ) {
-        return ResponseEntity.created(URI.create(memberService.createMember(memberCreateDto))).build();
+        UserJoinResponse userJoinResponse = memberService.createMember(memberCreate);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .header("Location", userJoinResponse.userId())
+                .body(
+                        userJoinResponse
+                );
     }
 
     @GetMapping("/all")
