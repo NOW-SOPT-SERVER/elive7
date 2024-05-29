@@ -3,7 +3,9 @@ package org.sopt.cloneCoding.service;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.sopt.cloneCoding.common.dto.ErrorMessage;
 import org.sopt.cloneCoding.domain.Member;
+import org.sopt.cloneCoding.exception.NotFoundException;
 import org.sopt.cloneCoding.repository.MemberRepository;
 import org.sopt.cloneCoding.service.dto.MemberCreateDto;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,7 @@ public class MemberService {
 
     public Member findMemberById(Long memberId){
         return memberRepository.findById(memberId).orElseThrow(
-                ()->new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
+                ()->new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND)
         );
     }
 }
