@@ -11,6 +11,7 @@ import opt.sopt.practice.service.dto.BlogCreateRequest;
 import opt.sopt.practice.service.dto.BlogTitleUpdateRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class BlogController {
 
     @PostMapping("/blog")
     public ResponseEntity createBlog(
-            BlogCreateRequest blogCreateRequest
+            @ModelAttribute BlogCreateRequest blogCreateRequest
     ) {
         return ResponseEntity.created(URI.create(blogService.create(
                 principalHandler.getUserIdFromPrincipal(), blogCreateRequest))).build();
