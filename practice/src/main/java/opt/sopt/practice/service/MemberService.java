@@ -4,6 +4,8 @@ import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import opt.sopt.practice.auth.UserAuthentication;
+import opt.sopt.practice.auth.rds.domain.Token;
+import opt.sopt.practice.auth.rds.repository.TokenRepository;
 import opt.sopt.practice.common.dto.ErrorMessage;
 import opt.sopt.practice.common.jwt.JwtTokenProvider;
 import opt.sopt.practice.domain.Member;
@@ -20,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final TokenRepository tokenRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
@@ -30,10 +33,18 @@ public class MemberService {
                 Member.create(memberCreate.name(), memberCreate.part(), memberCreate.age())
         );
         Long memberId = member.getId();
+        //Access Token 생성
         String accessToken = jwtTokenProvider.issueAccessToken(
                 UserAuthentication.createUserAuthentication(memberId)
         );
-        return UserJoinResponse.of(accessToken, memberId.toString());
+        //Refresh Token 생성
+        String refreshToken = jwtTokenProvider.issueRefreshToken(
+                UserAuthentication.createUserAuthentication(memberId)
+        );
+        //Refresh Token 저장
+        tokenRepository.save(Token.of(memberId, refreshToken));
+
+        return UserJoinResponse.of(accessToken, refreshToken, memberId.toString());
     }
 
     public List<MemberFindAllDto> findMemberAll() {
