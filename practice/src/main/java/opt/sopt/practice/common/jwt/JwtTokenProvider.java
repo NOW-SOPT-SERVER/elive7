@@ -26,7 +26,7 @@ public class JwtTokenProvider {
     private static final String ROLES = "roles";
 
     private static final Long ACCESS_TOKEN_EXPIRATION_TIME = 5 * 60 * 1000L; // 5 minutes
-    private static final Long REFRESH_TOKEN_EXPIRATION_TIME = 14 * 24 * 60 * 1000L; // 14 days
+    private static final Long REFRESH_TOKEN_EXPIRATION_TIME = 24 * 60 * 60 * 1000L * 14; // 14 days
 
     @Value("${jwt.secret}")
     private String JWT_SECRET;
