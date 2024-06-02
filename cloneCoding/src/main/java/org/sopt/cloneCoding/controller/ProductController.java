@@ -16,7 +16,9 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +34,7 @@ public class ProductController {
 
     @PostMapping("/selling")
     public ResponseEntity<SuccessStatusResponse> createSellingProduct(
-            @RequestBody SellingProductCreateDto sellingProductCreateDto
+            @ModelAttribute SellingProductCreateDto sellingProductCreateDto
     ) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("Location", productService.createSellingProduct(sellingProductCreateDto))
@@ -41,7 +43,7 @@ public class ProductController {
 
     @PostMapping("/sharing")
     public ResponseEntity<SuccessStatusResponse> createSharingProduct(
-            @RequestBody SharingProductCreateDto sharingProductCreateDto
+            @ModelAttribute SharingProductCreateDto sharingProductCreateDto
     ) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("Location", productService.createSharingProduct(sharingProductCreateDto))
@@ -56,6 +58,12 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(SuccessStatusResponse.of(SuccessMessage.RRODUCT_GET_SUCCESS,
                         productService.findProductByPlace(transactionPlace, pageable)));
+    }
+
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
+        productService.deleteProduct(productId);
+        return ResponseEntity.noContent().build();
     }
 
 }

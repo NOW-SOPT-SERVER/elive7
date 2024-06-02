@@ -15,8 +15,8 @@ public class SellingProduct extends Product {
     private boolean negotiable;
 
     public SellingProduct(String title, Member seller, Double price, String description, TransactionPlace transactionPlace,
-                          boolean negotiable) {
-        super(title, seller, description, transactionPlace);
+                          boolean negotiable, String imageUrl) {
+        super(title, seller, description, transactionPlace, imageUrl);
         this.price = price;
         this.negotiable = negotiable;
     }

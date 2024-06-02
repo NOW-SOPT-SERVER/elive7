@@ -5,32 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3da53616-7c84-45f6-8898-681b4f368249" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/ErrorMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessStatusResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/config/JpaAuditingConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/HeartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/BaseTimeEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Heart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/TransactionPlace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/BusinessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/DuplicateLikeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/HeartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/HeartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductFindAllDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/exception/InvalidProductTypeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/external/AwsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/external/S3Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/common/dto/SuccessMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SellingProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SellingProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SharingProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/domain/SharingProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/MemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/MemberCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/MemberCreateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/ProductCreateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SellingProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SellingProductCreateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SharingProductCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sopt/cloneCoding/service/dto/SharingProductCreateDto.java" afterDir="false" />
@@ -104,27 +88,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build cloneCoding.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.CloneCodingApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/parks/Documents/GitHub/elive7/cloneCoding",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build cloneCoding.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CloneCodingApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cloneCoding#3&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/parks/Documents/GitHub/elive7/cloneCoding&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -164,6 +148,11 @@
       <workItem from="1713339127970" duration="34000" />
       <workItem from="1713339172784" duration="3687000" />
       <workItem from="1716613576799" duration="28000" />
+      <workItem from="1717126971380" duration="19000" />
+      <workItem from="1717139651870" duration="73000" />
+      <workItem from="1717155525234" duration="406000" />
+      <workItem from="1717155945586" duration="4716000" />
+      <workItem from="1717295008030" duration="6871000" />
     </task>
     <servers />
   </component>
