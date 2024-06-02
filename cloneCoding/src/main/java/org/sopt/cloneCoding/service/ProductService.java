@@ -36,54 +36,36 @@ public class ProductService {
     @Transactional
     public String createSellingProduct(SellingProductCreateDto sellingProductCreateDto) {
         Member member = memberService.findMemberById(sellingProductCreateDto.getSellerId());
-        SellingProduct sellingProduct;
-        if (sellingProductCreateDto.getImage() == null){
-            sellingProduct = SellingProduct.builder()
+        try {
+            String imageUrl = null;
+            if (sellingProductCreateDto.getImage() != null){
+                imageUrl = s3Service.uploadImage(PRODUCT_S3_UPLOAD_FOLER, sellingProductCreateDto.getImage());
+            }
+            SellingProduct sellingProduct = SellingProduct.builder()
                     .title(sellingProductCreateDto.getTitle())
                     .seller(member)
                     .price(sellingProductCreateDto.getPrice())
                     .description(sellingProductCreateDto.getDescription())
                     .transactionPlace(sellingProductCreateDto.getTransactionPlace())
                     .negotiable(sellingProductCreateDto.getNegotiable())
+                    .imageUrl(imageUrl)
                     .build();
+            sellingProductRepository.save(sellingProduct);
+            return sellingProduct.getId().toString();
+        } catch (RuntimeException | IOException e) {
+            throw new RuntimeException((e.getMessage()));
         }
-        else {
-            try {
-                String imageUrl = s3Service.uploadImage(PRODUCT_S3_UPLOAD_FOLER, sellingProductCreateDto.getImage());
-                sellingProduct = SellingProduct.builder()
-                        .title(sellingProductCreateDto.getTitle())
-                        .seller(member)
-                        .price(sellingProductCreateDto.getPrice())
-                        .description(sellingProductCreateDto.getDescription())
-                        .transactionPlace(sellingProductCreateDto.getTransactionPlace())
-                        .negotiable(sellingProductCreateDto.getNegotiable())
-                        .imageUrl(imageUrl)
-                        .build();
-            } catch (RuntimeException | IOException e){
-                throw new RuntimeException((e.getMessage()));
-            }
-        }
-        sellingProductRepository.save(sellingProduct);
-        return sellingProduct.getId().toString();
     }
 
     @Transactional
     public String createSharingProduct(SharingProductCreateDto sharingProductCreateDto) {
         Member member = memberService.findMemberById(sharingProductCreateDto.getSellerId());
-        SharingProduct sharingProduct;
-        if (sharingProductCreateDto.getImage() == null){
-            sharingProduct = SharingProduct.builder()
-                    .title(sharingProductCreateDto.getTitle())
-                    .seller(member)
-                    .description(sharingProductCreateDto.getDescription())
-                    .transactionPlace(sharingProductCreateDto.getTransactionPlace())
-                    .sharingEvent(sharingProductCreateDto.getSharingEvent())
-                    .build();
-        }
-        else {
-            try {
-                String imageUrl = s3Service.uploadImage(PRODUCT_S3_UPLOAD_FOLER, sharingProductCreateDto.getImage());
-                sharingProduct = SharingProduct.builder()
+        try{
+                String imageUrl = null;
+                if (sharingProductCreateDto.getImage() != null){
+                    imageUrl = s3Service.uploadImage(PRODUCT_S3_UPLOAD_FOLER, sharingProductCreateDto.getImage());
+                }
+                SharingProduct sharingProduct = SharingProduct.builder()
                         .title(sharingProductCreateDto.getTitle())
                         .seller(member)
                         .description(sharingProductCreateDto.getDescription())
@@ -91,12 +73,11 @@ public class ProductService {
                         .sharingEvent(sharingProductCreateDto.getSharingEvent())
                         .imageUrl(imageUrl)
                         .build();
-            } catch (RuntimeException | IOException e){
-                throw new RuntimeException((e.getMessage()));
-            }
+            sharingProductRepository.save(sharingProduct);
+            return sharingProduct.getId().toString();
+        } catch (RuntimeException | IOException e) {
+            throw new RuntimeException((e.getMessage()));
         }
-        sharingProductRepository.save(sharingProduct);
-        return sharingProduct.getId().toString();
     }
 
     public Slice<ProductFindAllDto> findProductByPlace(TransactionPlace transactionPlace, Pageable pageable){
