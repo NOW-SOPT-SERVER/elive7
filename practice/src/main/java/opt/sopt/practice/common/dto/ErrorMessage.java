@@ -11,9 +11,9 @@ public enum ErrorMessage {
     BLOG_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "ID에 해당하는 블로그가 존재하지 않습니다."),
     BLOG_NOT_OWNED_BY_USER(HttpStatus.FORBIDDEN.value(), "이 블로그에 대한 권한이 없습니다."),
     POST_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "ID에 해당하는 게시글이 존재하지 않습니다."),
-
+    REFRESH_TOKEN_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "해당 refresh token에 대한 정보를 찾을 수 없습니다. 다시 로그인해주세요"),
     JWT_UNAUTHORIZED_EXCEPTION(HttpStatus.UNAUTHORIZED.value(), "사용자의 로그인 검증을 실패했습니다."),
-    ;
+    JWT_ACCESS_TOKEN_EXPIRED_EXCEPTION(HttpStatus.UNAUTHORIZED.value(), "access token이 만료되었습니다.");
     private final int status;
     private final String message;
 }

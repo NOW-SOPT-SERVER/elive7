@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import java.util.Objects;
 import opt.sopt.practice.common.dto.ErrorMessage;
 import opt.sopt.practice.common.dto.ErrorResponse;
+import opt.sopt.practice.exception.AccessTokenExpiredException;
 import opt.sopt.practice.exception.NotFoundException;
 import opt.sopt.practice.exception.UnauthorizedActionException;
 import opt.sopt.practice.exception.UnauthorizedException;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -19,6 +21,13 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.of(HttpStatus.BAD_REQUEST.value(),
                 Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    protected ResponseEntity<ErrorResponse> handleMethodArgumentTypeMismatchException(
+            MethodArgumentTypeMismatchException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.of(HttpStatus.BAD_REQUEST.value(),
+                e.getMessage()));
     }
 
     @ExceptionHandler(NotFoundException.class)
@@ -35,6 +44,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UnauthorizedException.class)
     protected ResponseEntity<ErrorResponse> handlerUnauthorizedException(UnauthorizedException e) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ErrorResponse.of(e.getErrorMessage().getStatus(), e.getErrorMessage().getMessage()));
+    }
+
+    @ExceptionHandler(AccessTokenExpiredException.class)
+    protected ResponseEntity<ErrorResponse> handlerAccessTokenExpiredException(AccessTokenExpiredException e) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(ErrorResponse.of(e.getErrorMessage().getStatus(), e.getErrorMessage().getMessage()));
     }
