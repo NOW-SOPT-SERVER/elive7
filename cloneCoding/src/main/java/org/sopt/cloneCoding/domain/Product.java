@@ -1,5 +1,6 @@
 package org.sopt.cloneCoding.domain;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -36,10 +37,20 @@ public class Product extends BaseTimeEntity{
     @Enumerated(EnumType.STRING)
     private TransactionPlace transactionPlace;
 
+    private String imageUrl;
+
     public Product(String title, Member seller, String description, TransactionPlace transactionPlace) {
         this.title = title;
         this.seller = seller;
         this.description = description;
         this.transactionPlace = transactionPlace;
+    }
+
+    public Product(String title, Member seller, String description, TransactionPlace transactionPlace,String imageUrl) {
+        this.title = title;
+        this.seller = seller;
+        this.description = description;
+        this.transactionPlace = transactionPlace;
+        this.imageUrl = imageUrl;
     }
 }
