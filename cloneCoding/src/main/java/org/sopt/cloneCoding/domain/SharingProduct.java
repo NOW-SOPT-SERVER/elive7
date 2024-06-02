@@ -13,8 +13,8 @@ public class SharingProduct extends Product {
     private Boolean sharingEvent;
 
     public SharingProduct(String title, Member seller, String description, TransactionPlace transactionPlace,
-                          Boolean sharingEvent) {
-        super(title, seller, description, transactionPlace);
+                          Boolean sharingEvent, String imageUrl) {
+        super(title, seller, description, transactionPlace, imageUrl);
         this.sharingEvent = sharingEvent;
     }
 }

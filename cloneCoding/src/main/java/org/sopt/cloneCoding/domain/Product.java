@@ -39,12 +39,6 @@ public class Product extends BaseTimeEntity{
 
     private String imageUrl;
 
-    public Product(String title, Member seller, String description, TransactionPlace transactionPlace) {
-        this.title = title;
-        this.seller = seller;
-        this.description = description;
-        this.transactionPlace = transactionPlace;
-    }
 
     public Product(String title, Member seller, String description, TransactionPlace transactionPlace,String imageUrl) {
         this.title = title;
